@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Карта изображений</title>
+    <link rel="stylesheet" href="styles.css">
+    <script>
+        function changeBackground() {
+            if (document.body.style.backgroundColor === '' || document.body.style.backgroundColor === 'rgb(231, 214, 214)') {
+                document.body.style.backgroundColor = '#9e1a1a';
+            } 
+            else {
+                document.body.style.backgroundColor = '#e7d6d6';
+            }
+        }
+
+        function showAlert() {
+            alert('У помидорки нет действия, она стесняется 8)');
+        }
+    </script>
+</head>
+<body>
+    <h1>Овощи: Интерактивна карта</h1>
+    <h2 class="subtitle">Нажмите на любой овощ!</h2>
+    
+    <div class="image-map-container">
+        <img id="image_id" src="img/map.jpg" alt="Овощи" usemap="#imagemap">
+        
+        <map name="imagemap"> 
+            <!-- 1. Переход на внешнюю страницу (кулинарный сайт) -->
+            <area shape="rect" alt="Огурец, переход на внешнюю страницу" 
+                coords="260,390,394,156" 
+                href="https://edadeal.ru/journal/240901-cucumber-recipes-for-winter/"
+                target="_blank">
+
+            <area shape="rect" alt="Морковь, переход на внешнюю страницу" 
+                coords="183,25,394,133" 
+                href="https://ru.wikipedia.org/wiki/Морковь_посевная"
+                target="_blank">
+            
+            <!-- 2. Переход на внутреннюю страницу -->
+            <area shape="poly" alt="Капуста, переход на внутреннюю страницу" 
+                coords="72,336,69,360,76,373,89,371,100,372,116,372,129,378,146,377,164,375,
+                184,375,194,372,204,365,210,347,215,338,221,330,226,318,224,302,220,293,228,
+                277,232,263,220,256,204,256,191,263,189,253,195,250,204,248,210,244,217,230,
+                217,216,206,196,191,182,179,177,171,181,165,171,149,165,125,167,104,174,86,
+                189,82,199,85,208,67,224,53,220,41,222,30,237,20,256,20,275,24,284,21,299,
+                26,313,31,319,40,322,44,341,56,341" 
+                href="kapusta.html"
+                target="_blank">
+            
+            <!-- 3. Прокрутка к разделу на этой же странице -->
+            <area shape="circle" alt="Лук, прокрутка к разделу на этой же странице" 
+                coords="499,92,81" 
+                href="#luk">
+            
+            <!-- 4. Показ уведомления -->
+            <area shape="circle" alt="Помидор, уведомление" 
+                coords="94,75,72" 
+                href="javascript:void(1);"
+                onclick="showAlert()">
+            
+            <!-- 5. Изменение фона страницы -->
+            <area shape="circle" alt="Свёкла, изменение цвета" 
+                coords="497,280,96" 
+                href="javascript:void(0);"
+                onclick="changeBackground()">
+
+        </map>
+    </div>
+
+    <div id="luk" class="info">
+        <h2>Не плакать! Это всего лишь лук</h2>
+        <div class="content">
+            <img src="img/luk.jpg" alt="Ker" class="image" width="200" height="200">
+        </div>
+    </div>
+</body>
+</html>
+
