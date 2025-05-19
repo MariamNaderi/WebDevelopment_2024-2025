@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block title %}Главная - Мир Овощей{% endblock %}
+
+{% block content %}
+<h2>Наши овощи</h2>
+<div class="vegetable-grid">
+    {% for vegetable in vegetables %}
+    <div class="vegetable-card">
+        <h3>{{ vegetable.name }}</h3>
+        <p>{{ vegetable.description }}</p>
+        {% if vegetable.image %}
+        <img src="{{ vegetable.image.url }}" alt="{{ vegetable.name }}" width="200">
+        {% endif %}
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}
